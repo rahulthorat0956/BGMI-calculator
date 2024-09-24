@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BGMI Calculator</title>
+    <style>
+        body{
+            background-color: aqua;
+            margin: auto;
+            padding: auto;
+        }
+        #heading-cal{
+            text-align: center;
+            margin-top: 200px;
+        }
+        #formall{
+            text-align: center;
+            justify-content: center;
+            border: 2px solid;
+            width: 350px;
+            height: 200px;
+            margin-left: 600px;
+
+        }
+        #formbutton{
+            margin-top: 25px;
+            text-align: center;
+            margin-left: 10px;
+        }
+        #result{
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h2 id="heading-cal">BGMI Calculator</h2><br>
+    <form action="" id="formall">
+        <br>
+        <label for="height">Enter Height</label>
+        <input type="Text" id="height">
+            <br><br>
+        <label for="weight">Enter weight</label>
+        <input type="Text" id="weight">
+            <br>
+        <button id="formbutton">Calculate</button>
+        <div id="result"></div>
+    </form>
+    
+</body>
+<script>
+
+    const form =document.querySelector('form')
+    form.addEventListener('submit',function(event){
+        event.preventDefault();
+        const height = parseInt(document.querySelector('#height').value)
+    const weight= parseInt(document.querySelector('#weight').value)
+    const result= document.querySelector('#result')
+
+
+    if(height==='' || height<1|| isNaN(height)){
+        result.innerHTML="Please enter correct height";
+    }
+    else if(weight==='' || weight<1|| isNaN(weight)){
+        result.innerHTML="Please enter correct weight ";
+    }
+    else{
+        const BMI=(weight / ((height*height)/10000)).toFixed(2)
+
+        //result 
+        result.innerHTML= `<span>The result are :${BMI}</span>`;
+    }
+    })
+    
+
+
+</script>
+</html>
